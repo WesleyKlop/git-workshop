@@ -6,10 +6,12 @@ import styleCss from './style.css' assert { type: 'css' }
 document.adoptedStyleSheets = [styleCss]
 
 const contributorContainer = document.querySelector('#contributors')
+// Import the list of contributors
 const { default: contributors } = await import('./contributors.json', {
   assert: { type: 'json' },
 })
 
+// Add each contributor to the list and wrap their usernames in a link
 contributors.forEach(contributor => {
   const li = document.createElement('li')
   const a = document.createElement('a')
